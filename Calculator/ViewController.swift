@@ -67,6 +67,16 @@ class ViewController: UIViewController {
         clear()
         
     }
+    
+    
+    func minus() {
+        
+        storedNumber = workingNumber
+        clear()
+        
+    }
+    
+    
     func updateDisplay(_ text : String?) {
         if (text != nil) {
             resultLabel.text = text
@@ -74,6 +84,7 @@ class ViewController: UIViewController {
             return
         }
     }
+    
     
     func equals() {
         
@@ -83,12 +94,6 @@ class ViewController: UIViewController {
         
     }
     
-    func minus() {
-        
-        storedNumber = workingNumber
-        clear()
-        
-    }
     
     func displayNumber() {
         
