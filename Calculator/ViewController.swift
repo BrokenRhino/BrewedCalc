@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     }
     
     func plus() {
+        
         storedNumber = workingNumber
         clear()
         
@@ -71,7 +72,7 @@ class ViewController: UIViewController {
     
     func minus() {
         
-        storedNumber = workingNumber
+        storedNumber = String(0.0 - Double(workingNumber)!)
         clear()
         
     }
@@ -107,6 +108,7 @@ class ViewController: UIViewController {
         }
         
     }
+    
     
     func clear() {
         workingNumber = "0"
