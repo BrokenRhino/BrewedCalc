@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var workingNumber : String = ""
     var numberPressed : Int = 0
     var storedNumber : String = ""
+    var operatorSign : String = ""
     
     //MARK: Functions
     
@@ -39,18 +40,26 @@ class ViewController: UIViewController {
             clear()
         case 11 :
             print("+/-")
+            operatorSign = "+/-"
         case 12 :
             print("%")
+            operatorSign = "%"
         case 13 :
             print("/")
+            operatorPressed()
+            operatorSign = "/"
         case 14 :
             print("*")
+            operatorPressed()
+            operatorSign = "*"
         case 15 :
             print("-")
-            minus()
+            operatorPressed()
+            operatorSign = "-"
         case 16 :
             print("+")
-            plus()
+            operatorPressed()
+            operatorSign = "+"
         case 17 :
             print("=")
             equals()
@@ -62,17 +71,17 @@ class ViewController: UIViewController {
         
     }
     
-    func plus() {
+//    func plus() {
+//
+//        storedNumber = workingNumber
+//        clear()
+//
+//    }
+    
+    
+    func operatorPressed() {
         
         storedNumber = workingNumber
-        clear()
-        
-    }
-    
-    
-    func minus() {
-        
-        storedNumber = String(0.0 - Double(workingNumber)!)
         clear()
         
     }
@@ -85,16 +94,32 @@ class ViewController: UIViewController {
             return
         }
     }
-    
+    //storedNumber = String(0.0 - Double(workingNumber)!)
     
     func equals() {
-        
-        finishedNumber = (Double(storedNumber)! + Double(workingNumber)!)
+        switch operatorSign {
+        case "+":
+            finishedNumber = (Double(storedNumber)! + Double(workingNumber)!)
+        case "-":
+            finishedNumber = (Double(storedNumber)! - Double(workingNumber)!)
+        case "*":
+            finishedNumber = (Double(storedNumber)! * Double(workingNumber)!)
+        case "/":
+            finishedNumber = (Double(storedNumber)! / Double(workingNumber)!)
+        case "+/-":
+            finishedNumber = Double(workingNumber)! * -1
+        case "%":
+            finishedNumber = Double(workingNumber)! * 0.01
+        default:
+            print("Error")
+        }
+
         print(finishedNumber)
         updateDisplay(String(finishedNumber))
         
     }
     
+    //TODO: create an alter nuumber func for % and +/- 
     
     func displayNumber() {
         
