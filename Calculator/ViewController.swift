@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
     }
 
+    //TODO: "." make that button work
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         switch (sender.tag - 1) {
@@ -41,9 +42,11 @@ class ViewController: UIViewController {
         case 11 :
             print("+/-")
             operatorSign = "+/-"
+            alterNumber()
         case 12 :
             print("%")
             operatorSign = "%"
+            alterNumber()
         case 13 :
             print("/")
             operatorPressed()
@@ -68,15 +71,8 @@ class ViewController: UIViewController {
         default:
             return
         }
-        
+
     }
-    
-//    func plus() {
-//
-//        storedNumber = workingNumber
-//        clear()
-//
-//    }
     
     
     func operatorPressed() {
@@ -94,7 +90,7 @@ class ViewController: UIViewController {
             return
         }
     }
-    //storedNumber = String(0.0 - Double(workingNumber)!)
+
     
     func equals() {
         switch operatorSign {
@@ -106,10 +102,6 @@ class ViewController: UIViewController {
             finishedNumber = (Double(storedNumber)! * Double(workingNumber)!)
         case "/":
             finishedNumber = (Double(storedNumber)! / Double(workingNumber)!)
-        case "+/-":
-            finishedNumber = Double(workingNumber)! * -1
-        case "%":
-            finishedNumber = Double(workingNumber)! * 0.01
         default:
             print("Error")
         }
@@ -119,7 +111,23 @@ class ViewController: UIViewController {
         
     }
     
-    //TODO: create an alter nuumber func for % and +/- 
+    //TODO: Make the change operable
+    func alterNumber() {
+        
+        switch operatorSign {
+        case "%":
+            finishedNumber = Double(workingNumber)! * 0.01
+        case "+/-":
+            finishedNumber = Double(workingNumber)! * -1
+        default:
+            print("error")
+        }
+        
+        print(finishedNumber)
+        updateDisplay(String(finishedNumber))
+        
+    }
+
     
     func displayNumber() {
         
