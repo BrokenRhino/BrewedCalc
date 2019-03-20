@@ -68,6 +68,9 @@ class ViewController: UIViewController {
             equals()
         case 18 :
             print(".")
+            workingNumber = workingNumber + "."
+            print(workingNumber)
+            resultLabel.text = workingNumber
         default:
             return
         }
