@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
     }
 
-    //TODO: "." make that button work
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         switch (sender.tag - 1) {
@@ -93,7 +93,19 @@ class ViewController: UIViewController {
             return
         }
     }
+    
+    // TODO: Add in superscript display on the display label so that the working number and the stored number are both displayed
+    
+    
+    
+    // TODO: Add in number formatting so the correct decimal place is displayed
+    
+    
+    
+    // TODO: Add themeing and make the background a better color
 
+    
+    
     
     func equals() {
         switch operatorSign {
@@ -114,7 +126,7 @@ class ViewController: UIViewController {
         
     }
     
-    //TODO: Make the change operable
+    //TODO: make the decimal only work once, currently you can have '89.1.3.5'
     func alterNumber() {
         
         switch operatorSign {
@@ -122,6 +134,7 @@ class ViewController: UIViewController {
             finishedNumber = Double(workingNumber)! * 0.01
         case "+/-":
             finishedNumber = Double(workingNumber)! * -1
+            workingNumber = String(finishedNumber)
         default:
             print("error")
         }
